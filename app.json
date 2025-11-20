@@ -1,0 +1,15 @@
+{
+  "name": "Watermark Bot",
+  "description": "Telegram Video Watermark Bot",
+  "repository": "https://github.com/AbirHasan2005/Watermark-Bot",
+  "env": {
+    "API_ID": {"required": true},
+    "API_HASH": {"required": true},
+    "BOT_TOKEN": {"required": true},
+    "OWNER_ID": {"required": true},
+    "DATABASE_URL": {"required": true}
+  },
+  "buildpacks": [
+    {"url": "heroku/python"}
+  ]
+}
