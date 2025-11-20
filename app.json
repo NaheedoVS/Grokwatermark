@@ -1,15 +1,52 @@
 {
-  "name": "Watermark Bot",
-  "description": "Telegram Video Watermark Bot",
-  "repository": "https://github.com/AbirHasan2005/Watermark-Bot",
+  "name": "GrokWatermark Bot",
+  "description": "Telegram Video Watermark Bot with Grok Theme",
+  "repository": "https://github.com/NaheedoVS/Grokwatermark",
+  "keywords": ["telegram", "bot", "watermark", "pyrogram", "ffmpeg"],
   "env": {
-    "API_ID": {"required": true},
-    "API_HASH": {"required": true},
-    "BOT_TOKEN": {"required": true},
-    "OWNER_ID": {"required": true},
-    "DATABASE_URL": {"required": true}
+    "API_ID": {
+      "description": "Telegram API ID from my.telegram.org",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API Hash from my.telegram.org",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram user ID",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "MongoDB URI from Atlas",
+      "required": true
+    },
+    "LOG_CHANNEL": {
+      "description": "Telegram log channel ID",
+      "value": "-1001234567890"  // Optional default; change to yours
+    },
+    "PRESET": {
+      "description": "FFmpeg preset (e.g., ultrafast)",
+      "value": "ultrafast"
+    }
   },
   "buildpacks": [
-    {"url": "heroku/python"}
-  ]
+    {
+      "url": "heroku/python"
+    },
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  },
+  "addons": [],
+  "stack": "heroku-22"
 }
