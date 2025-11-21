@@ -46,8 +46,8 @@
     "quantity": 1,
     "size": "eco"  
   }
-    }
+  }
   },
   "addons": [],
   "stack": "heroku-22"
-}
+
