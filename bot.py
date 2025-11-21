@@ -69,7 +69,9 @@ async def process_video(client: Client, message: Message):
     
     if use_text and text:
         x, y = position.split(":") if ":" in position else (position, "10")  # Simplified
-        drawtext = f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='{text.replace('\'', '\\\'')}':fontcolor={color}:fontsize={t_size}:x={x}:y={y}"
+        safe_text = text.replace("'", r"\'")
+drawtext = f"drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf:text='{safe_text}':fontcolor={color}:fontsize={t_size}:x={x}:y={y}"
+
         filter_complex.append(f"[0:v]{drawtext}[base]")
         current_input = "[base]"
     else:
