@@ -33,7 +33,10 @@ POSITIONS = {
 }
 
 
-@app.on_message(filters.command("start"))
+@app.on_message(
+    filters.video |
+    (filters.document & filters.file_extension(["mp4", "mkv", "mov", "webm"]))
+))
 async def start_cmd(client: Client, message: Message):
     user_id = message.from_user.id
     await set_user_data(user_id, {"position": "mc", "size": 50})  # Default
