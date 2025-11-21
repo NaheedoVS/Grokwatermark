@@ -26,7 +26,7 @@
     },
     "LOG_CHANNEL": {
       "description": "Telegram log channel ID",
-      "value": "-1001234567890"  // Optional default; change to yours
+      "value": "-1001234567890"  
     },
     "PRESET": {
       "description": "FFmpeg preset (e.g., ultrafast)",
