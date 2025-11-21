@@ -18,6 +18,9 @@ A Telegram bot for adding watermarks to videos. Now with dynamic text overlays!
 ## New: Text Watermark
 Use /settings to set text, color (e.g., #FF0000), size (px), and toggle.
 
+## Quick Deploy
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/NaheedoVS/Grokwatermark)
+
 ## Usage
 /start - Welcome
 Upload video - Process
