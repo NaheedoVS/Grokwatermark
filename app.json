@@ -17,20 +17,21 @@
       "required": true
     },
     "OWNER_ID": {
-      "description": "Your Telegram user ID",
+      "description": "Your Telegram user ID (get from @userinfobot)",
       "required": true
     },
     "DATABASE_URL": {
-      "description": "MongoDB URI from Atlas",
+      "description": "MongoDB URI from Atlas (e.g., mongodb+srv://...)",
       "required": true
     },
     "LOG_CHANNEL": {
-      "description": "Telegram log channel ID",
-      "value": "-1001234567890"  
+      "description": "Telegram log channel ID (optional)",
+      "value": "-1001234567890"
     },
     "PRESET": {
       "description": "FFmpeg preset (e.g., ultrafast)",
-      "value": "ultrafast"
+      "value": "ultrafast",
+      "required": false
     }
   },
   "buildpacks": [
@@ -41,13 +42,13 @@
       "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
     }
   ],
-  "formation": {
-  "worker": {
-    "quantity": 1,
-    "size": "eco"  
-  }
-  
-  },
+  "formation": [
+    {
+      "process": "worker",
+      "quantity": 1,
+      "size": "eco"
+    }
+  ],
   "addons": [],
   "stack": "heroku-22"
-
+}
